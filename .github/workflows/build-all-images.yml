@@ -1,0 +1,40 @@
+name: build-all-images
+
+on:
+  schedule:
+    - cron: "0 22 * * 1"
+  push:
+
+jobs:
+  build-nextcloud-80:
+    uses: ./.github/workflows/build-image.yml
+    with:
+      REGISTRY: docker.io
+      IMAGE_NAME: php-fpm
+      IMAGE_TAG: 8.0-nextcloud
+      CONTEXT_PATH: ./nextcloud/8.0
+    secrets:
+      REG_USER: ${{ secrets.REG_USER }}
+      REG_PASS: ${{ secrets.REG_PASS }}
+
+  build-wordpress-74:
+    uses: ./.github/workflows/build-image.yml
+    with:
+      REGISTRY: docker.io
+      IMAGE_NAME: php-fpm
+      IMAGE_TAG: 7.4-wordpress
+      CONTEXT_PATH: ./wordpress/7.4
+    secrets:
+      REG_USER: ${{ secrets.REG_USER }}
+      REG_PASS: ${{ secrets.REG_PASS }}
+
+  build-wordpress-80:
+    uses: ./.github/workflows/build-image.yml
+    with:
+      REGISTRY: docker.io
+      IMAGE_NAME: php-fpm
+      IMAGE_TAG: 8.0-wordpress
+      CONTEXT_PATH: ./wordpress/8.0
+    secrets:
+      REG_USER: ${{ secrets.REG_USER }}
+      REG_PASS: ${{ secrets.REG_PASS }}
