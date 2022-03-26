@@ -17,6 +17,17 @@ jobs:
       REG_USER: ${{ secrets.REG_USER }}
       REG_PASS: ${{ secrets.REG_PASS }}
 
+  build-nextcloud-81:
+    uses: ./.github/workflows/build-image.yml
+    with:
+      REGISTRY: docker.io
+      IMAGE_NAME: php-fpm
+      IMAGE_TAG: 8.1-nextcloud
+      CONTEXT_PATH: ./nextcloud/8.1
+    secrets:
+      REG_USER: ${{ secrets.REG_USER }}
+      REG_PASS: ${{ secrets.REG_PASS }}
+
   build-wordpress-74:
     uses: ./.github/workflows/build-image.yml
     with:
@@ -35,6 +46,17 @@ jobs:
       IMAGE_NAME: php-fpm
       IMAGE_TAG: 8.0-wordpress
       CONTEXT_PATH: ./wordpress/8.0
+    secrets:
+      REG_USER: ${{ secrets.REG_USER }}
+      REG_PASS: ${{ secrets.REG_PASS }}
+
+  build-wordpress-81:
+    uses: ./.github/workflows/build-image.yml
+    with:
+      REGISTRY: docker.io
+      IMAGE_NAME: php-fpm
+      IMAGE_TAG: 8.1-wordpress
+      CONTEXT_PATH: ./wordpress/8.1
     secrets:
       REG_USER: ${{ secrets.REG_USER }}
       REG_PASS: ${{ secrets.REG_PASS }}
