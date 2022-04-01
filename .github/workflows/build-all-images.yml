@@ -7,56 +7,61 @@ on:
 
 jobs:
   build-nextcloud-80:
-    uses: ./.github/workflows/build-image.yml
-    with:
-      REGISTRY: docker.io
-      IMAGE_NAME: php-fpm
-      IMAGE_TAG: 8.0-nextcloud
-      CONTEXT_PATH: ./nextcloud/8.0
-    secrets:
-      REG_USER: ${{ secrets.REG_USER }}
-      REG_PASS: ${{ secrets.REG_PASS }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/build-image/
+        with:
+          IMAGE_NAME: php-fpm
+          IMAGE_TAG: 8.0-nextcloud
+          CONTEXT_PATH: ./nextcloud/8.0
+          REG_USER: ${{ secrets.REG_USER }}
+          REG_PASS: ${{ secrets.REG_PASS }}
 
   build-nextcloud-81:
-    uses: ./.github/workflows/build-image.yml
-    with:
-      REGISTRY: docker.io
-      IMAGE_NAME: php-fpm
-      IMAGE_TAG: 8.1-nextcloud
-      CONTEXT_PATH: ./nextcloud/8.1
-    secrets:
-      REG_USER: ${{ secrets.REG_USER }}
-      REG_PASS: ${{ secrets.REG_PASS }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/build-image/
+        with:
+          IMAGE_NAME: php-fpm
+          IMAGE_TAG: 8.1-nextcloud
+          CONTEXT_PATH: ./nextcloud/8.1
+          REG_USER: ${{ secrets.REG_USER }}
+          REG_PASS: ${{ secrets.REG_PASS }}
 
   build-wordpress-74:
-    uses: ./.github/workflows/build-image.yml
-    with:
-      REGISTRY: docker.io
-      IMAGE_NAME: php-fpm
-      IMAGE_TAG: 7.4-wordpress
-      CONTEXT_PATH: ./wordpress/7.4
-    secrets:
-      REG_USER: ${{ secrets.REG_USER }}
-      REG_PASS: ${{ secrets.REG_PASS }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/build-image/
+        with:
+          IMAGE_NAME: php-fpm
+          IMAGE_TAG: 7.4-wordpress
+          CONTEXT_PATH: ./wordpress/7.4
+          REG_USER: ${{ secrets.REG_USER }}
+          REG_PASS: ${{ secrets.REG_PASS }}
 
   build-wordpress-80:
-    uses: ./.github/workflows/build-image.yml
-    with:
-      REGISTRY: docker.io
-      IMAGE_NAME: php-fpm
-      IMAGE_TAG: 8.0-wordpress
-      CONTEXT_PATH: ./wordpress/8.0
-    secrets:
-      REG_USER: ${{ secrets.REG_USER }}
-      REG_PASS: ${{ secrets.REG_PASS }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/build-image/
+        with:
+          IMAGE_NAME: php-fpm
+          IMAGE_TAG: 8.0-wordpress
+          CONTEXT_PATH: ./wordpress/8.0
+          REG_USER: ${{ secrets.REG_USER }}
+          REG_PASS: ${{ secrets.REG_PASS }}
 
   build-wordpress-81:
-    uses: ./.github/workflows/build-image.yml
-    with:
-      REGISTRY: docker.io
-      IMAGE_NAME: php-fpm
-      IMAGE_TAG: 8.1-wordpress
-      CONTEXT_PATH: ./wordpress/8.1
-    secrets:
-      REG_USER: ${{ secrets.REG_USER }}
-      REG_PASS: ${{ secrets.REG_PASS }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/build-image/
+        with:
+          IMAGE_NAME: php-fpm
+          IMAGE_TAG: 8.1-wordpress
+          CONTEXT_PATH: ./wordpress/8.1
+          REG_USER: ${{ secrets.REG_USER }}
+          REG_PASS: ${{ secrets.REG_PASS }}
