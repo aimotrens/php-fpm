@@ -30,6 +30,18 @@ jobs:
           REG_USER: ${{ secrets.REG_USER }}
           REG_PASS: ${{ secrets.REG_PASS }}
 
+  build-nextcloud-82:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/build-image/
+        with:
+          IMAGE_NAME: php-fpm
+          IMAGE_TAG: 8.2-nextcloud
+          CONTEXT_PATH: ./nextcloud/8.2
+          REG_USER: ${{ secrets.REG_USER }}
+          REG_PASS: ${{ secrets.REG_PASS }}
+
   build-wordpress-74:
     runs-on: ubuntu-latest
     steps:
@@ -63,5 +75,17 @@ jobs:
           IMAGE_NAME: php-fpm
           IMAGE_TAG: 8.1-wordpress
           CONTEXT_PATH: ./wordpress/8.1
+          REG_USER: ${{ secrets.REG_USER }}
+          REG_PASS: ${{ secrets.REG_PASS }}
+
+  build-wordpress-82:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/build-image/
+        with:
+          IMAGE_NAME: php-fpm
+          IMAGE_TAG: 8.2-wordpress
+          CONTEXT_PATH: ./wordpress/8.2
           REG_USER: ${{ secrets.REG_USER }}
           REG_PASS: ${{ secrets.REG_PASS }}
