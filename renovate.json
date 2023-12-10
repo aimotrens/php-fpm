@@ -18,17 +18,11 @@
             "matchFileNames": [
                 "**/8.2/**"
             ],
-            "matchPackageNames": [
-                "php-fpm"
-            ],
             "allowedVersions": "/^8.2.*/"
         },
         {
             "matchFileNames": [
                 "**/8.3/**"
-            ],
-            "matchPackageNames": [
-                "php-fpm"
             ],
             "allowedVersions": "/^8.3.*/"
         }
