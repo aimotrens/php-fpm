@@ -1,0 +1,50 @@
+FROM php:8.3-fpm
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    libcurl4-openssl-dev \
+    libevent-dev \
+    libfreetype6-dev \
+    libicu-dev \
+    libjpeg-dev \
+    libldap2-dev \
+    libmcrypt-dev \
+    libmemcached-dev \
+    libpng-dev \
+    libpq-dev \
+    libxml2-dev \
+    libmagickwand-dev \
+    libzip-dev \
+    libwebp-dev \
+    libgmp-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp
+
+RUN docker-php-ext-install \
+    bcmath \
+    exif \
+    gd \
+    intl \
+    ldap \
+    opcache \
+    pcntl \
+    pdo_mysql \
+    pdo_pgsql \
+    zip \
+    gmp
+
+RUN pecl install \
+    APCu \
+    memcached \
+    redis \
+    imagick
+
+RUN docker-php-ext-enable \
+    apcu \
+    memcached \
+    redis \
+    imagick && \
+    rm -r /tmp/pear
+
+ADD ./www.conf /usr/local/etc/php-fpm.d/www.conf
