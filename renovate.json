@@ -1,9 +1,13 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
-        "config:best-practices"
+        "config:recommended"
     ],
     "packageRules": [
+        {
+            "matchPackageNames":["php"],
+            "pinDigests": true
+        },
         {
             "matchUpdateTypes": [
                 "patch",
@@ -11,7 +15,9 @@
                 "digest"
             ],
             "automerge": true,
-            "addLabels": ["automerge"],
+            "addLabels": [
+                "automerge"
+            ],
             "ignoreTests": true
         },
         {
