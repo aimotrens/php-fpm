@@ -1,4 +1,4 @@
-FROM php:8.3-fpm@sha256:6b64bb4d9921b567028438565cce4db1385927c6301915072cd686aefff2d349
+FROM php:8.3-fpm@sha256:2b97525602d1338e6098ce55a8c56a0151d30c30450e3c2f012155c1a347ef62
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
