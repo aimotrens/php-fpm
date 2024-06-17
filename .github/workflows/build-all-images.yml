@@ -16,7 +16,7 @@ jobs:
         with:
           username: ${{ secrets.REG_USER }}
           password: ${{ secrets.REG_PASS }}
-      - uses: docker/build-push-action@v5
+      - uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64,linux/arm64
           context: ./nextcloud/8.2
@@ -50,7 +50,7 @@ jobs:
         with:
           username: ${{ secrets.REG_USER }}
           password: ${{ secrets.REG_PASS }}
-      - uses: docker/build-push-action@v5
+      - uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64,linux/arm64
           context: ./wordpress/8.2
