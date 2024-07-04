@@ -9,14 +9,14 @@ jobs:
   build-nextcloud-82:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: docker/setup-qemu-action@v3
-      - uses: docker/setup-buildx-action@v3
-      - uses: docker/login-action@v3
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      - uses: docker/setup-qemu-action@5927c834f5b4fdf503fca6f4c7eccda82949e1ee # v3
+      - uses: docker/setup-buildx-action@4fd812986e6c8c2a69e18311145f9371337f27d4 # v3
+      - uses: docker/login-action@0d4c9c5ea7693da7b068278f7b52bda2a190a446 # v3
         with:
           username: ${{ secrets.REG_USER }}
           password: ${{ secrets.REG_PASS }}
-      - uses: docker/build-push-action@v6
+      - uses: docker/build-push-action@1a162644f9a7e87d8f4b053101d1d9a712edc18c # v6
         with:
           platforms: linux/amd64,linux/arm64
           context: ./nextcloud/8.2
@@ -43,14 +43,14 @@ jobs:
   build-wordpress-82:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: docker/setup-qemu-action@v3
-      - uses: docker/setup-buildx-action@v3
-      - uses: docker/login-action@v3
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      - uses: docker/setup-qemu-action@5927c834f5b4fdf503fca6f4c7eccda82949e1ee # v3
+      - uses: docker/setup-buildx-action@4fd812986e6c8c2a69e18311145f9371337f27d4 # v3
+      - uses: docker/login-action@0d4c9c5ea7693da7b068278f7b52bda2a190a446 # v3
         with:
           username: ${{ secrets.REG_USER }}
           password: ${{ secrets.REG_PASS }}
-      - uses: docker/build-push-action@v6
+      - uses: docker/build-push-action@1a162644f9a7e87d8f4b053101d1d9a712edc18c # v6
         with:
           platforms: linux/amd64,linux/arm64
           context: ./wordpress/8.2
