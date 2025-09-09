@@ -1,4 +1,4 @@
-FROM php:8.2-fpm@sha256:94c1f24567d788713395dc92d06ac826ba316731f31bff188f171aebbf13aa06
+FROM php:8.2-fpm@sha256:e4a841115cb7f16f8ee2ea616c05f9ec1857f46c8b23f3e1df3ef040ce09a716
 
 RUN apt-get update && \
     apt-get install -y \
